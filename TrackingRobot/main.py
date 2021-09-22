@@ -1,13 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Sep 22 19:41:51 2021
-
-@author: shadi
-"""
-
-
-
-
-if __name__=="__main__":
-    print("fff")
-    
+version https://git-lfs.github.com/spec/v1
+oid sha256:04d035b6031cc68fdd4fe0b0c44098a58d6856c4960463a49353b396041986bb
+size 216

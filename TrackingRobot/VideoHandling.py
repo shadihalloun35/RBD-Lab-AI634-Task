@@ -8,7 +8,7 @@ Created on Wed Sep 22 22:57:27 2021
 import cv2
 #import numpy as np
 
-def WritingVvideo():
+def WritingVideo():
 
     # Create a VideoCapture object
     cap = cv2.VideoCapture(0)

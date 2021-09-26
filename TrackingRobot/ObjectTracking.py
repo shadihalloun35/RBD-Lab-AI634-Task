@@ -8,7 +8,7 @@ Created on Sat Sep 25 03:20:51 2021
 import cv2
 import sys
 
-#(major_ver, minor_ver, subminor_ver) = (cv2.__version__).split('.')￼
+(major_ver, minor_ver, subminor_ver) = cv2.__version__.split(".")
 
 def TrackObject(videoPath):
 
@@ -18,9 +18,8 @@ def TrackObject(videoPath):
     tracker_types = ['BOOSTING', 'MIL','KCF', 'TLD', 'MEDIANFLOW', 'GOTURN', 'MOSSE', 'CSRT']
     tracker_type = tracker_types[2]
 
-    if int(6) < 3:
-        #tracker = cv2.Tracker_create(tracker_type)
-        tracker_type = tracker_types[2]
+    if int(minor_ver) < 3:
+        tracker = cv2.Tracker_create(tracker_type)
     else:
         if tracker_type == 'BOOSTING':
             tracker = cv2.TrackerBoosting_create()
@@ -98,4 +97,5 @@ def TrackObject(videoPath):
 
         # Exit if ESC pressed
         k = cv2.waitKey(1) & 0xff
+        
         if k == 27 : break

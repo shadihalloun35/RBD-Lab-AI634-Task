@@ -9,14 +9,6 @@ import cv2
 import argparse
 import Utillis
 
-'''
-parser = argparse.ArgumentParser()
-parser.add_argument('-i', '--input', help='path to the input video',
-                    required=True)
-parser.add_argument('-c', '--consecutive-frames', default=4, type=int,
-                    dest='consecutive_frames', help='path to the input video')
-args = vars(parser.parse_args())
-'''
 
 def DetectObject(videoPath):
     cap = cv2.VideoCapture(videoPath)
@@ -24,7 +16,6 @@ def DetectObject(videoPath):
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
     
-    #save_name = f"outputs/{args['input'].split('/')[-1]}"
     save_name = 'output'
     # define codec and create VideoWriter object
     out = cv2.VideoWriter(
@@ -69,7 +60,7 @@ def DetectObject(videoPath):
                 for contour in contours:
                     # continue through the loop if contour area is less than 500...
                     # ... helps in removing noise detection
-                    if cv2.contourArea(contour) < 500:
+                    if cv2.contourArea(contour) < 2000:
                         continue
                     # get the xmin, ymin, width, and height coordinates from the contours
                     (x, y, w, h) = cv2.boundingRect(contour)

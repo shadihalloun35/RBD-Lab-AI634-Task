@@ -19,6 +19,6 @@ if __name__=="__main__":
     #VideoHandling.DisplayVideo(videoPath)
     #VideoHandling.WritingVideo()
     #ObjectTracking.TrackObject(videoPath)
-    ObjectDetection.DetectObject(videoPath)
+    frame_Xcoordinates,frame_Ycoordinates,frame_Wcoordinates,frame_Hcoordinates = ObjectDetection.DetectObject(videoPath)
     
         

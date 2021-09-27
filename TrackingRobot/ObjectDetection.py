@@ -33,7 +33,7 @@ def DetectObject(videoPath):
     # convert the background model to grayscale format
     background = cv2.cvtColor(background, cv2.COLOR_BGR2GRAY)
     frame_count = 0
-    consecutive_frame = 2
+    consecutive_frame = 8
     while (cap.isOpened()):
         ret, frame = cap.read()
         if ret == True:
@@ -64,7 +64,7 @@ def DetectObject(videoPath):
                 for contour in contours:
                     # continue through the loop if contour area is less than 500...
                     # ... helps in removing noise detection
-                    if cv2.contourArea(contour) < 2000:
+                    if cv2.contourArea(contour) < 5000:
                         continue
                     # get the xmin, ymin, width, and height coordinates from the contours
                     (x, y, w, h) = cv2.boundingRect(contour)

@@ -15,7 +15,11 @@ def DetectObject(videoPath):
     # get the video frame height and width
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
-    
+    frame_Xcoordinates = []
+    frame_Ycoordinates = []
+    frame_Hcoordinates = []
+    frame_Wcoordinates = []
+
     save_name = 'output'
     # define codec and create VideoWriter object
     out = cv2.VideoWriter(
@@ -64,6 +68,17 @@ def DetectObject(videoPath):
                         continue
                     # get the xmin, ymin, width, and height coordinates from the contours
                     (x, y, w, h) = cv2.boundingRect(contour)
+                    
+                    frame_Xcoordinates.append(x)
+                    frame_Ycoordinates.append(y)
+                    frame_Wcoordinates.append(w)
+                    frame_Hcoordinates.append(h)
+
+                   # print("x: " , x)
+                   # print("y: " , y)
+                   # print("w: " , w)
+                   # print("h: " , h)
+
                     # draw the bounding boxes
                     cv2.rectangle(orig_frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
             
@@ -75,3 +90,5 @@ def DetectObject(videoPath):
             break
     cap.release()
     cv2.destroyAllWindows()
+    
+    return frame_Xcoordinates,frame_Ycoordinates,frame_Wcoordinates,frame_Hcoordinates

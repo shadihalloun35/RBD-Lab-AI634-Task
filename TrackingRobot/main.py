@@ -4,6 +4,7 @@ Created on Wed Sep 22 19:41:51 2021
 
 @author: shadi
 """
+
 import VideoHandling
 import ObjectTracking
 import ObjectDetection
@@ -20,9 +21,8 @@ if __name__=="__main__":
     #VideoHandling.WritingVideo()
     #ObjectTracking.TrackObject(videoPath)
     frame_Xcoordinates,frame_Ycoordinates,frame_Wcoordinates,frame_Hcoordinates = ObjectDetection.DetectObject(videoPath)
-    
     templateImage = Utillis.GetTemplateImage(frame_Xcoordinates,frame_Ycoordinates,frame_Wcoordinates,frame_Hcoordinates)
-    
+    centroidsA = Utillis.FindingCentroids(templateImage,len(templateImage))
     
     
    

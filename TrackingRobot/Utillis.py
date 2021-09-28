@@ -30,5 +30,37 @@ def GetTemplateImage(frame_Xcoordinates,frame_Ycoordinates,frame_Wcoordinates,fr
     secondPoint = (frame_Xcoordinates[0]+frame_Wcoordinates[0],frame_Ycoordinates[0])
     thirdPoint = (frame_Xcoordinates[0],frame_Ycoordinates[0]+frame_Hcoordinates[0])
     fourthPoint = (frame_Xcoordinates[0]+frame_Wcoordinates[0],frame_Ycoordinates[0]+frame_Hcoordinates[0])
-    
     return [firstPoint,secondPoint,thirdPoint,fourthPoint]
+
+
+def FindingCentroids(points,dim):
+    
+    sumPointsX = 0
+    sumPointsY = 0
+    
+    for point in points:
+        sumPointsX += point[0]
+        sumPointsY += point[1]
+    
+    return (sumPointsX/dim,sumPointsY/dim)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

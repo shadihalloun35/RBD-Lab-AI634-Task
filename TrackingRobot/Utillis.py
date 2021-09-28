@@ -22,3 +22,13 @@ def GetBackground(videoPath):
     # calculate the median
     median_frame = np.median(frames, axis=0).astype(np.uint8)
     return median_frame
+
+
+def GetTemplateImage(frame_Xcoordinates,frame_Ycoordinates,frame_Wcoordinates,frame_Hcoordinates):
+    
+    firstPoint = (frame_Xcoordinates[0],frame_Ycoordinates[0])
+    secondPoint = (frame_Xcoordinates[0]+frame_Wcoordinates[0],frame_Ycoordinates[0])
+    thirdPoint = (frame_Xcoordinates[0],frame_Ycoordinates[0]+frame_Hcoordinates[0])
+    fourthPoint = (frame_Xcoordinates[0]+frame_Wcoordinates[0],frame_Ycoordinates[0]+frame_Hcoordinates[0])
+    
+    return [firstPoint,secondPoint,thirdPoint,fourthPoint]

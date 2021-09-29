@@ -64,7 +64,7 @@ def DetectObject(videoPath):
                 for contour in contours:
                     # continue through the loop if contour area is less than 500...
                     # ... helps in removing noise detection
-                    if cv2.contourArea(contour) < 5000:
+                    if cv2.contourArea(contour) < 500:
                         continue
                     # get the xmin, ymin, width, and height coordinates from the contours
                     (x, y, w, h) = cv2.boundingRect(contour)

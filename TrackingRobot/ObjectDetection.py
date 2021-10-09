@@ -20,13 +20,9 @@ def DetectObject(videoPath):
     frame_Hcoordinates = []
     frame_Wcoordinates = []
 
-    save_name = 'output'
+    save_name = 'output.mp4'
     # define codec and create VideoWriter object
-    out = cv2.VideoWriter(
-        save_name,
-        cv2.VideoWriter_fourcc(*'mp4v'), 10, 
-        (frame_width, frame_height)
-    )
+    out = cv2.VideoWriter(save_name,-1, 10, (frame_width, frame_height))
     
     # get the background model
     background = Utillis.GetBackground(videoPath)
@@ -64,10 +60,14 @@ def DetectObject(videoPath):
                 for contour in contours:
                     # continue through the loop if contour area is less than 500...
                     # ... helps in removing noise detection
-                    if cv2.contourArea(contour) < 500:
+                    if cv2.contourArea(contour) < 1500:
                         continue
                     # get the xmin, ymin, width, and height coordinates from the contours
                     (x, y, w, h) = cv2.boundingRect(contour)
+                    #(a, b, c, d) = cv2.boundingRect(contour+1)
+                    #next_start = (a,b)
+                    start_point = (x, y)
+                    end_point = (x+w, y+h)
                     
                     frame_Xcoordinates.append(x)
                     frame_Ycoordinates.append(y)
@@ -78,9 +78,9 @@ def DetectObject(videoPath):
                    # print("y: " , y)
                    # print("w: " , w)
                    # print("h: " , h)
-
+                    #cv2.line(orig_frame, start_point, next_start, (0, 255, 0), 2)
                     # draw the bounding boxes
-                    cv2.rectangle(orig_frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+                    cv2.rectangle(orig_frame, start_point, end_point, (0, 255, 0), 2)
             
                 cv2.imshow('Detected Objects', orig_frame)
                 out.write(orig_frame)
@@ -89,6 +89,7 @@ def DetectObject(videoPath):
         else:
             break
     cap.release()
+    out.release()
     cv2.destroyAllWindows()
     
     return frame_Xcoordinates,frame_Ycoordinates,frame_Wcoordinates,frame_Hcoordinates

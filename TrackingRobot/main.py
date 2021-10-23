@@ -11,7 +11,7 @@ import ObjectDetection
 import Utillis
 
 shadiVideoPath = 'C:\\HaifaUniversity\\RBD Lab\\RBD-Lab-AI634-Task\\ai634Data\\wetransfer_algo_2021-08-26_1138\\Camera2_1280_720.mp4'
-ibrahemVideoPath = "C:\\ai634Data\\ai634Data\\wetransfer_algo_2021-08-26_1138\\Camera1_1280_720.mp4"
+ibrahemVideoPath = "C:\\ai634Data\\ai634Data\\wetransfer_algo_2021-08-26_1138\\shadi.mp4"
 
 
 if __name__=="__main__":

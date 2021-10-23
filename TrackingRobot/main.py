@@ -16,7 +16,7 @@ ibrahemVideoPath = "C:\\ai634Data\\ai634Data\\wetransfer_algo_2021-08-26_1138\\s
 
 if __name__=="__main__":
     
-    videoPath = ibrahemVideoPath
+    videoPath = shadiVideoPath
     #VideoHandling.DisplayVideo(videoPath)
     #VideoHandling.WritingVideo()
     #ObjectTracking.TrackObject(videoPath)

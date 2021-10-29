@@ -18,6 +18,7 @@ def TrackObject(videoPath):
     tracker_types = ['BOOSTING', 'MIL','KCF', 'TLD', 'MEDIANFLOW', 'GOTURN', 'MOSSE', 'CSRT']
     tracker_type = tracker_types[2]
 
+
     if int(minor_ver) < 3:
         tracker = cv2.Tracker_create(tracker_type)
     else:
@@ -54,9 +55,10 @@ def TrackObject(videoPath):
     
     # Define an initial bounding box
     bbox = (287, 23, 86, 320)
+    ok, frame = video.read()
 
     # Uncomment the line below to select a different bounding box
-    #bbox = cv2.selectROI(frame, False)
+    bbox = cv2.selectROI(frame, False)
 
     # Initialize tracker with first frame and bounding box
     ok = tracker.init(frame, bbox)
@@ -64,6 +66,8 @@ def TrackObject(videoPath):
     while True:
         # Read a new frame
         ok, frame = video.read()
+        #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
         if not ok:
             break
         
